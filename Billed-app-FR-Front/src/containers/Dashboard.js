@@ -79,7 +79,6 @@ export default class {
   }
 
   handleClickIconEye = () => {
-    console.log('click icon')
     const billUrl = $('#icon-eye-d').attr("data-bill-url")
     const imgWidth = Math.floor($('#modaleFileAdmin1').width() * 0.8)
     $('#modaleFileAdmin1').find(".modal-body").html(`<div style='text-align: center;' class="bill-proof-container"><img width=${imgWidth} src=${billUrl} alt="Bill"/></div>`)
@@ -87,11 +86,9 @@ export default class {
   }
 
   handleEditTicket(e, bill, bills) {
-    console.log('EditTicket')
     if (this.counter === undefined || this.id !== bill.id) this.counter = 0
     if (this.id === undefined || this.id !== bill.id) this.id = bill.id
     if (this.counter % 2 === 0) {
-      console.log('IF')
       bills.forEach(b => {
         $(`#open-bill${b.id}`).css({ background: '#0D5AE5' })
       })
@@ -100,15 +97,14 @@ export default class {
       $('.vertical-navbar').css({ height: '150vh' })
       this.counter ++
     } else {
-      console.log('ELSE')
       $(`#open-bill${bill.id}`).css({ background: '#0D5AE5' })
 
       $('.dashboard-right-container div').html(`
         <div id="big-billed-icon" data-testid="big-billed-icon"> ${BigBilledIcon} </div>
       `)
-      //$('.vertical-navbar').css({ height: '120vh' })
+
       this.counter ++
-      this.id = undefined
+      this.id = undefined //
     }
     $('#icon-eye-d').click(this.handleClickIconEye)
     $('#btn-accept-bill').click((e) => this.handleAcceptSubmit(e, bill))
@@ -121,9 +117,8 @@ export default class {
       status: 'accepted',
       commentAdmin: $('#commentary2').val()
     }
-    console.log('AcceptSubmit')
     this.updateBill(newBill)
-    this.onNavigate(ROUTES_PATH['Dashboard'])
+    this.onNavigate(ROUTES_PATH['Dashboard'])//
   }
 
   handleRefuseSubmit = (e, bill) => {
@@ -132,13 +127,11 @@ export default class {
       status: 'refused',
       commentAdmin: $('#commentary2').val()
     }
-    console.log('RefuseSubmit')
     this.updateBill(newBill)
-    this.onNavigate(ROUTES_PATH['Dashboard'])
+    this.onNavigate(ROUTES_PATH['Dashboard'])//
   }
 
   handleShowTickets(e, bills, index) {
-    console.log('Shotickt')
     if (this.counter === undefined || this.index !== index) this.counter = 0
     if (this.index === undefined || this.index !== index) this.index = index
     if (this.counter % 2 === 0) {
@@ -150,19 +143,19 @@ export default class {
       billsFiltered.forEach(bill => {
         $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
       })
-      this.counter ++
     } else {
       $(`#arrow-icon${this.index}`).css({ transform: 'rotate(90deg)'})
       $(`#status-bills-container${this.index}`)
         .html("")
-      this.counter ++
     }
+
+    this.counter ++
+    
     return bills
 
   }
 
   getBillsAllUsers = () => {
-    console.log('allusers')
     if (this.store) {
       return this.store
       .bills()
@@ -187,13 +180,19 @@ export default class {
   // not need to cover this function by tests
   /* istanbul ignore next */
   updateBill = (bill) => {
-    console.log('updateBill')
-    if (this.store) {
-    return this.store
-      .bills()
-      .update({data: JSON.stringify(bill), selector: bill.id})
-      .then(bill => bill)
-      .catch(console.log)
-    }
+    return new Promise((resolve, reject) => {
+      if (!this.store) return
+      return this.store
+        .bills()
+        .update({data: JSON.stringify(bill), selector: bill.id})
+        .then(bill => {
+          resolve()
+          return bill
+        })
+        .catch(error => {
+          reject(error)
+          console.log(error)
+        })
+    })
   }
 }

@@ -8,6 +8,7 @@ export default class NewBill {
     this.store = store
     const formNewBill = this.document.querySelector(`form[data-testid="form-new-bill"]`)
     formNewBill.addEventListener("submit", this.handleSubmit)
+    this.formNewBill = formNewBill
     const file = this.document.querySelector(`input[data-testid="file"]`)
     file.addEventListener("change", this.handleChangeFile)
     this.fileUrl = null
@@ -15,29 +16,46 @@ export default class NewBill {
     this.billId = null
     new Logout({ document, localStorage, onNavigate })
   }
+
   handleChangeFile = e => {
     e.preventDefault()
+    return this.checkImage()
     
+  }
+
+  checkImage = e => {
     const fileInput = this.document.querySelector(`input[data-testid="file"]`)
-    const vat = this.document.querySelector(`input[data-testid="vat"]`)
-    const file = fileInput.files[0]
-    const filePath = e.target.value.split(/\\/g)
+    const filePath = fileInput.value.split(/\\/g)
     const fileName = filePath[filePath.length-1]
     const imgExtension = ['jpg', 'jpeg', 'png']
     const fileExtension = fileName.split('.').pop()
     const isImage = imgExtension.includes(fileExtension)
-    const formData = new FormData()
-    const email = JSON.parse(localStorage.getItem("user")).email
     // Fix [Bug Hunt] - Bills **********************************************************************
-    if(!isImage) {
+    if(isImage) {
+      fileInput.setCustomValidity("")
+      fileInput.reportValidity()
+      this.fileUrl = filePath
+      this.fileName = fileName
+
+      return true
+    } else {
       fileInput.setCustomValidity("Format d'image invalide")
       fileInput.value = ''
       fileInput.reportValidity()
+
       return false
-    }
-    console.log("filepath : ", filePath, 'fileName : ', fileName)
-    formData.append('file', file)
-    formData.append('email', email)
+    }   
+  }
+
+  handleSubmit = e => {
+    e.preventDefault()
+    this.checkImage()
+
+    const formData = new FormData(this.formNewBill)
+
+    formData.set('email', JSON.parse(localStorage.getItem("user")).email)
+    formData.set('status', 'pending') 
+    formData.set('file', document.querySelector('[name="file"]').files[0])
 
     this.store
       .bills()
@@ -47,32 +65,13 @@ export default class NewBill {
           noContentType: true
         }
       })
-      .then(({fileUrl, key}) => {
-        console.log(fileUrl)
-        this.billId = key
-        this.fileUrl = fileUrl
-        this.fileName = fileName
-      }).catch(error => console.error(error))
-  }
-  handleSubmit = e => {
-    e.preventDefault()
-    console.log('e.target.querySelector(`input[data-testid="datepicker"]`).value', e.target.querySelector(`input[data-testid="datepicker"]`).value)
-    const email = JSON.parse(localStorage.getItem("user")).email
-    const bill = {
-      email,
-      type: e.target.querySelector(`select[data-testid="expense-type"]`).value,
-      name:  e.target.querySelector(`input[data-testid="expense-name"]`).value,
-      amount: parseInt(e.target.querySelector(`input[data-testid="amount"]`).value),
-      date:  e.target.querySelector(`input[data-testid="datepicker"]`).value,
-      vat: e.target.querySelector(`input[data-testid="vat"]`).value,
-      pct: parseInt(e.target.querySelector(`input[data-testid="pct"]`).value) || 20,
-      commentary: e.target.querySelector(`textarea[data-testid="commentary"]`).value,
-      fileUrl: this.fileUrl,
-      fileName: this.fileName,
-      status: 'pending'
-    }
-    this.updateBill(bill)
-    this.onNavigate(ROUTES_PATH['Bills'])
+      .then((response) => {
+        this.billId = response.key
+        this.fileUrl = response.fileUrl
+        this.fileName = response.fileName
+      }).catch(console.error)
+      
+      this.onNavigate(ROUTES_PATH['Bills'])
   }
 
   // not need to cover this function by tests

@@ -1,0 +1,201 @@
+<html><head><meta charset="utf-8"/><title>Billed Test Report</title><style type="text/css">html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+body {
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+}
+#jesthtml-content {
+  margin: 0 auto;
+  max-width: 70rem;
+}
+header {
+  display: flex;
+  align-items: center;
+}
+#title {
+  margin: 0;
+  flex-grow: 1;
+}
+#logo {
+  height: 4rem;
+}
+#timestamp {
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+/** SUMMARY */
+#summary {
+  color: #333;
+  margin: 2rem 0;
+  display: flex;
+  font-family: monospace;
+  font-size: 1rem;
+}
+#summary > div {
+  margin-right: 2rem;
+  background: #eee;
+  padding: 1rem;
+  min-width: 15rem;
+}
+#summary > div:last-child {
+  margin-right: 0;
+}
+@media only screen and (max-width: 720px) {
+  #summary {
+    flex-direction: column;
+  }
+  #summary > div {
+    margin-right: 0;
+    margin-top: 2rem;
+  }
+  #summary > div:first-child {
+    margin-top: 0;
+  }
+}
+
+.summary-total {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.summary-passed {
+  color: #4f8a10;
+  border-left: 0.4rem solid #4f8a10;
+  padding-left: 0.5rem;
+}
+.summary-failed {
+  color: #d8000c;
+  border-left: 0.4rem solid #d8000c;
+  padding-left: 0.5rem;
+}
+.summary-pending {
+  color: #9f6000;
+  border-left: 0.4rem solid #9f6000;
+  padding-left: 0.5rem;
+}
+.summary-empty {
+  color: #999;
+  border-left: 0.4rem solid #999;
+}
+
+.test-result {
+  padding: 1rem;
+  margin-bottom: 0.25rem;
+}
+.test-result:last-child {
+  border: 0;
+}
+.test-result.passed {
+  background-color: #dff2bf;
+  color: #4f8a10;
+}
+.test-result.failed {
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.test-result.pending {
+  background-color: #ffdf61;
+  color: #9f6000;
+}
+
+.test-info {
+  display: flex;
+  justify-content: space-between;
+}
+.test-suitename {
+  width: 20%;
+  text-align: left;
+  font-weight: bold;
+  word-break: break-word;
+}
+.test-title {
+  width: 40%;
+  text-align: left;
+  font-style: italic;
+}
+.test-status {
+  width: 20%;
+  text-align: right;
+}
+.test-duration {
+  width: 10%;
+  text-align: right;
+  font-size: 0.75rem;
+}
+
+.failureMessages {
+  padding: 0 1rem;
+  margin-top: 1rem;
+  border-top: 1px dashed #d8000c;
+}
+.failureMsg {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.suite-container {
+  margin-bottom: 2rem;
+}
+.suite-info {
+  padding: 1rem;
+  background-color: #eee;
+  color: #777;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.suite-info .suite-path {
+  word-break: break-all;
+  flex-grow: 1;
+  font-family: monospace;
+  font-size: 1rem;
+}
+.suite-info .suite-time {
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.3rem;
+  font-size: 0.75rem;
+}
+.suite-info .suite-time.warn {
+  background-color: #d8000c;
+  color: #fff;
+}
+
+/* CONSOLE LOGS */
+.suite-consolelog {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #efefef;
+}
+.suite-consolelog-header {
+  font-weight: bold;
+}
+.suite-consolelog-item {
+  padding: 0.5rem;
+}
+.suite-consolelog-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-consolelog-item-origin {
+  color: #777;
+  font-weight: bold;
+}
+.suite-consolelog-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+</style></head><body><div id="jesthtml-content"><header><h1 id="title">Billed Test Report</h1><img id="logo" src="../etc/billed-report-logo.png"/></header><div id="metadata-container"><div id="timestamp">Started: 2022-06-28 02:02:20</div><div id="summary"><div id="suite-summary"><div class="summary-total">Suites (11)</div><div class="summary-passed">11 passed</div><div class="summary-failed summary-empty">0 failed</div><div class="summary-pending summary-empty">0 pending</div></div><div id="test-summary"><div class="summary-total">Tests (50)</div><div class="summary-passed">50 passed</div><div class="summary-failed summary-empty">0 failed</div><div class="summary-pending summary-empty">0 pending</div></div></div></div><div id="suite-1" class="suite-container"><div class="suite-info"><div class="suite-path">C:\DEV\BillApp\Billed-app-FR-Front\src\__tests__\LoadingPage.js</div><div class="suite-time">2.495s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected on app (as an Employee or an HR admin) &gt; When LoadingPage is called</div><div class="test-title">Then, it should render Loading...</div><div class="test-status">passed</div><div class="test-duration">0.017s</div></div></div></div></div><div id="suite-2" class="suite-container"><div class="suite-info"><div class="suite-path">C:\DEV\BillApp\Billed-app-FR-Front\src\__tests__\VerticalLayout.js</div><div class="suite-time">2.489s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as Employee</div><div class="test-title">Then Icons should be rendered</div><div class="test-status">passed</div><div class="test-duration">0.028s</div></div></div></div></div><div id="suite-3" class="suite-container"><div class="suite-info"><div class="suite-path">C:\DEV\BillApp\Billed-app-FR-Front\src\__tests__\ErrorPage.js</div><div class="suite-time">2.525s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected on app (as an Employee or an HR admin) &gt; When ErrorPage is called without and error in its signature</div><div class="test-title">Then, it should render ErrorPage with no error message</div><div class="test-status">passed</div><div class="test-duration">0.018s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected on app (as an Employee or an HR admin) &gt; When ErrorPage is called with error message in its signature</div><div class="test-title">Then, it should render ErrorPage with its error message</div><div class="test-status">passed</div><div class="test-duration">0.007s</div></div></div></div></div><div id="suite-4" class="suite-container"><div class="suite-info"><div class="suite-path">C:\DEV\BillApp\Billed-app-FR-Front\src\__tests__\DashboardFormUI.js</div><div class="suite-time">2.73s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an Admin and I am on Dashboard Page &gt; When bill data is passed to DashboardUI</div><div class="test-title">Then, it should them in the page</div><div class="test-status">passed</div><div class="test-duration">0.18s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an Admin and I am on Dashboard Page &gt; When pending bill is passed to DashboardUI</div><div class="test-title">Then, it should show button and textArea</div><div class="test-status">passed</div><div class="test-duration">0.064s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an Admin and I am on Dashboard Page &gt; When accepted bill is passed to DashboardUI</div><div class="test-title">Then, it should show admin commentary</div><div class="test-status">passed</div><div class="test-duration">0.018s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an Admin and I am on Dashboard Page &gt; When refused bill is passed to DashboardUI</div><div class="test-title">Then, it should show admin commentary</div><div class="test-status">passed</div><div class="test-duration">0.017s</div></div></div></div></div><div id="suite-5" class="suite-container"><div class="suite-info"><div class="suite-path">C:\DEV\BillApp\Billed-app-FR-Front\src\__tests__\routes.js</div><div class="suite-time">2.702s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected and I am on some page of the app &gt; When I navigate to Login page</div><div class="test-title">Then, it should render Login page</div><div class="test-status">passed</div><div class="test-duration">0.053s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected and I am on some page of the app &gt; When I navigate to Bills page</div><div class="test-title">Then, it should render Bills page</div><div class="test-status">passed</div><div class="test-duration">0.019s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected and I am on some page of the app &gt; When I navigate to NewBill page</div><div class="test-title">Then, it should render NewBill page</div><div class="test-status">passed</div><div class="test-duration">0.021s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected and I am on some page of the app &gt; When I navigate to Dashboard</div><div class="test-title">Then, it should render Dashboard page</div><div class="test-status">passed</div><div class="test-duration">0.013s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected and I am on some page of the app &gt; When I navigate to anywhere else other than Login, Bills, NewBill, Dashboard</div><div class="test-title">Then, it should render Loginpage</div><div class="test-status">passed</div><div class="test-duration">0.009s</div></div></div></div></div><div id="suite-6" class="suite-container"><div class="suite-info"><div class="suite-path">C:\DEV\BillApp\Billed-app-FR-Front\src\__tests__\Login.js</div><div class="suite-time">2.79s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given that I am a user on login page &gt; When I do not fill fields and I click on employee button Login In</div><div class="test-title">Then It should renders Login page</div><div class="test-status">passed</div><div class="test-duration">0.056s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given that I am a user on login page &gt; When I do fill fields in incorrect format and I click on employee button Login In</div><div class="test-title">Then It should renders Login page</div><div class="test-status">passed</div><div class="test-duration">0.024s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given that I am a user on login page &gt; When I do fill fields in correct format and I click on employee button Login In</div><div class="test-title">Then I should be identified as an Employee in app</div><div class="test-status">passed</div><div class="test-duration">0.043s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given that I am a user on login page &gt; When I do fill fields in correct format and I click on employee button Login In</div><div class="test-title">It should renders Bills page</div><div class="test-status">passed</div><div class="test-duration">0.007s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given that I am a user on login page &gt; When I do not fill fields and I click on admin button Login In</div><div class="test-title">Then It should renders Login page</div><div class="test-status">passed</div><div class="test-duration">0.011s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given that I am a user on login page &gt; When I do fill fields in incorrect format and I click on admin button Login In</div><div class="test-title">Then it should renders Login page</div><div class="test-status">passed</div><div class="test-duration">0.012s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given that I am a user on login page &gt; When I do fill fields in correct format and I click on admin button Login In</div><div class="test-title">Then I should be identified as an HR admin in app</div><div class="test-status">passed</div><div class="test-duration">0.034s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given that I am a user on login page &gt; When I do fill fields in correct format and I click on admin button Login In</div><div class="test-title">It should renders HR dashboard page</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div></div></div><div id="suite-7" class="suite-container"><div class="suite-info"><div class="suite-path">C:\DEV\BillApp\Billed-app-FR-Front\src\__tests__\Actions.js</div><div class="suite-time">2.821s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an Employee &gt; When I am on Bills page and there are bills</div><div class="test-title">Then, it should render icon eye</div><div class="test-status">passed</div><div class="test-duration">0.012s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an Employee &gt; When I am on Bills page and there are bills with url for file</div><div class="test-title">Then, it should save given url in data-bill-url custom attribute</div><div class="test-status">passed</div><div class="test-duration">0.004s</div></div></div></div></div><div id="suite-8" class="suite-container"><div class="suite-info"><div class="suite-path">C:\DEV\BillApp\Billed-app-FR-Front\src\__tests__\Logout.js</div><div class="suite-time">2.882s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected &gt; When I click on disconnect button</div><div class="test-title">Then, I should be sent to login page</div><div class="test-status">passed</div><div class="test-duration">0.051s</div></div></div></div></div><div id="suite-9" class="suite-container"><div class="suite-info"><div class="suite-path">C:\DEV\BillApp\Billed-app-FR-Front\src\__tests__\NewBill.js</div><div class="suite-time">2.995s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an employee &gt; When I am on NewBill Page</div><div class="test-title">Then mail icon in vertical layout should be highlighted</div><div class="test-status">passed</div><div class="test-duration">0.048s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an employee &gt; When I select a file</div><div class="test-title">Then the file type is checked on change</div><div class="test-status">passed</div><div class="test-duration">0.03s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an employee &gt; When I fill the form</div><div class="test-title">creating a new bill redirects me to the bills page</div><div class="test-status">passed</div><div class="test-duration">0.105s</div></div></div></div></div><div id="suite-10" class="suite-container"><div class="suite-info"><div class="suite-path">C:\DEV\BillApp\Billed-app-FR-Front\src\__tests__\Bills.js</div><div class="suite-time">3.096s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an employee &gt; When I am on Bills Page</div><div class="test-title">Then bill icon in vertical layout should be highlighted</div><div class="test-status">passed</div><div class="test-duration">0.053s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an employee &gt; When I am on Bills Page</div><div class="test-title">Then it should render bills</div><div class="test-status">passed</div><div class="test-duration">0.021s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an employee &gt; When I am on Bills Page</div><div class="test-title">Then bills should be ordered from earliest to latest</div><div class="test-status">passed</div><div class="test-duration">0.022s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an employee &gt; When I click on the new bill button</div><div class="test-title">Then bill should be created</div><div class="test-status">passed</div><div class="test-duration">0.042s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an employee &gt; When I click on the icon eye</div><div class="test-title">A modal should open</div><div class="test-status">passed</div><div class="test-duration">0.065s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I just connected as an employee &gt; When I navigate to Bills Page</div><div class="test-title">fetches bills from mock API GET</div><div class="test-status">passed</div><div class="test-duration">0.048s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I just connected as an employee &gt; When I navigate to Bills Page &gt; When an error occurs on API</div><div class="test-title">then fetches bills from an API and fails with 404 message error</div><div class="test-status">passed</div><div class="test-duration">0.005s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I just connected as an employee &gt; When I navigate to Bills Page &gt; When an error occurs on API</div><div class="test-title">then fetches bills from an API and fails with 500 message error</div><div class="test-status">passed</div><div class="test-duration">0.005s</div></div></div></div></div><div id="suite-11" class="suite-container"><div class="suite-info"><div class="suite-path">C:\DEV\BillApp\Billed-app-FR-Front\src\__tests__\Dashboard.js</div><div class="suite-time">3.173s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an Admin &gt; When I am on Dashboard page, there are bills, and there is one pending</div><div class="test-title">Then, filteredBills by pending status should return 1 bill</div><div class="test-status">passed</div><div class="test-duration">0.003s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an Admin &gt; When I am on Dashboard page, there are bills, and there is one accepted</div><div class="test-title">Then, filteredBills by accepted status should return 1 bill</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an Admin &gt; When I am on Dashboard page, there are bills, and there is two refused</div><div class="test-title">Then, filteredBills by accepted status should return 2 bills</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an Admin &gt; When I am on Dashboard page but it is loading</div><div class="test-title">Then, Loading page should be rendered</div><div class="test-status">passed</div><div class="test-duration">0.017s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an Admin &gt; When I am on Dashboard page but back-end send an error message</div><div class="test-title">Then, Error page should be rendered</div><div class="test-status">passed</div><div class="test-duration">0.007s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an Admin &gt; When I am on Dashboard page and I click on arrow</div><div class="test-title">Then, tickets list should be unfolding, and cards should appear</div><div class="test-status">passed</div><div class="test-duration">0.137s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an Admin &gt; When I am on Dashboard page and I click on edit icon of a card</div><div class="test-title">Then, right form should be filled</div><div class="test-status">passed</div><div class="test-duration">0.135s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an Admin &gt; When I am on Dashboard page and I click 2 times on edit icon of a card</div><div class="test-title">Then, big bill Icon should Appear</div><div class="test-status">passed</div><div class="test-duration">0.068s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as an Admin &gt; When I am on Dashboard and there are no bills</div><div class="test-title">Then, no cards should be shown</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as Admin, and I am on Dashboard page, and I clicked on a pending bill &gt; When I click on accept button</div><div class="test-title">I should be sent on Dashboard with big billed icon instead of form</div><div class="test-status">passed</div><div class="test-duration">0.019s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as Admin, and I am on Dashboard page, and I clicked on a pending bill &gt; When I click on refuse button</div><div class="test-title">I should be sent on Dashboard with big billed icon instead of form</div><div class="test-status">passed</div><div class="test-duration">0.02s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am connected as Admin and I am on Dashboard page and I clicked on a bill &gt; When I click on the icon eye</div><div class="test-title">A modal should open</div><div class="test-status">passed</div><div class="test-duration">0.031s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am a user connected as Admin &gt; When I navigate to Dashboard</div><div class="test-title">fetches bills from mock API GET</div><div class="test-status">passed</div><div class="test-duration">0.056s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am a user connected as Admin &gt; When I navigate to Dashboard &gt; When an error occurs on API</div><div class="test-title">fetches bills from an API and fails with 404 message error</div><div class="test-status">passed</div><div class="test-duration">0.069s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Given I am a user connected as Admin &gt; When I navigate to Dashboard &gt; When an error occurs on API</div><div class="test-title">fetches messages from an API and fails with 500 message error</div><div class="test-status">passed</div><div class="test-duration">0.056s</div></div></div></div></div></div></body></html>

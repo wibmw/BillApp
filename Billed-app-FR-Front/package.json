@@ -13,7 +13,20 @@
       "!**/assets/**",
       "!**/external/**",
       "!**/fixtures/**",
-      "!**/lcov-report/**"
+      "!**/lcov-report/**",
+      "!**/constants/usersTest.js",
+      "!**/setupTests.js"
+    ],
+    "reporters": [
+      "default",
+      [
+        "./node_modules/jest-html-reporter",
+        {
+          "pageTitle": "Billed Test Report",
+          "logo": "../etc/billed-report-logo.png",
+          "outputPath": "./report/test-report.html"
+        }
+      ]
     ]
   },
   "type": "module",
