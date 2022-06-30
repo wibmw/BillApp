@@ -43,7 +43,6 @@ describe('Given I am connected as an employee', () => {
       const imgMock = new File(['(⌐□_□)'], 'file.jpg', { type: 'image/jpg' })
       const badImgMock = new File(['(⌐□_□)'], 'file.pdf', { type: 'application/pdf' })
       const fileInput = screen.getByTestId('file')
-      screen.debug(fileInput)
       const handleChangeFile = jest.fn((e) => newBill.handleChangeFile(e))
 
       fileInput.addEventListener('change', handleChangeFile)

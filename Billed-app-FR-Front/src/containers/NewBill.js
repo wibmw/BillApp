@@ -69,6 +69,7 @@ export default class NewBill {
         this.billId = response.key
         this.fileUrl = response.fileUrl
         this.fileName = response.fileName
+        this.onNavigate(ROUTES_PATH['Bills'])
       }).catch(console.error)
       
       this.onNavigate(ROUTES_PATH['Bills'])
