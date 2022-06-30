@@ -1,4 +1,4 @@
-![Billed](/wibmw/BillApp/blob/main/Billed-app-FR-Front/src/assets/images/logo.png?raw=true)
+![Billed](Billed-app-FR-Front/src/assets/images/logo.png?raw=true)
 
 
 
@@ -40,7 +40,7 @@ S’inspirer du plan E2E que Garance a déjà rédigé sur le parcours administr
 ● ***Des comptes administrateur et employé ont été créés pour les tests dans le readme du code front-end. Il faut les utiliser pour pouvoir charger une note de frais côté employé et la consulter côté administrateur RH.***
 
 ### Rapport de test :
-![Test](/wibmw/BillApp/blob/main/Billed-app-FR-Front/src/assets/images/rapport_test.png?raw=true)
+![Test](Billed-app-FR-Front/src/assets/images/rapport_test.png?raw=true)
 
 ### Rapport de de couverture :
-![Couverture](/wibmw/BillApp/blob/main/Billed-app-FR-Front/src/assets/images/rapport_couverture.png?raw=true)
+![Couverture](Billed-app-FR-Front/src/assets/images/rapport_couverture.png?raw=true)
