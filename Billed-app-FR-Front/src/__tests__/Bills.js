@@ -15,6 +15,8 @@ import { ROUTES, ROUTES_PATH } from '../constants/routes.js'
 
 import router from '../app/Router.js'
 
+jest.mock("../app/store", () => mockStore)
+
 describe('Given I am connected as an employee', () => {
   describe('When I am on Bills Page', () => {
     test('Then bill icon in vertical layout should be highlighted', async () => {
@@ -129,11 +131,9 @@ describe('Given I just connected as an employee', () => {
             }
           }})
           
-          await new Promise( process.nextTick)
+        window.onNavigate(ROUTES_PATH.Bills)
+        await new Promise( process.nextTick)
 
-          document.body.innerHTML = BillsUI({ error: mockedError})
-  
-        
         const message = await screen.findAllByText(/Erreur 404/)
         expect(message).toBeTruthy()
       })
@@ -147,13 +147,27 @@ describe('Given I just connected as an employee', () => {
             }
           }})
           
-          await new Promise( process.nextTick)
 
-          document.body.innerHTML = BillsUI({ error: mockedError})
-  
-        
+        window.onNavigate(ROUTES_PATH.Bills)
+        await new Promise( process.nextTick)
+
         const message = await screen.findAllByText(/Erreur 500/)
         expect(message).toBeTruthy()
+      })
+
+      test("then a bad date should return the unformatted date, and log the error", async () => {
+
+        const billWithBadDateFormat = (await mockStore.bills().list())[0]
+        billWithBadDateFormat.date = "2002-02-02-bad-date-format"
+        const bill = { list: () =>  Promise.resolve([billWithBadDateFormat]) }
+
+        mockStore.bills.mockImplementationOnce(() => bill)
+
+        window.onNavigate(ROUTES_PATH.Bills)
+        await new Promise(process.nextTick)
+  
+        expect(screen.findAllByText('2002-02-02-bad-date-format')).toBeTruthy
+
       })
     })
   })

@@ -12,8 +12,7 @@ import NewBill from '../containers/NewBill'
 import NewBillUI from '../views/NewBillUI'
 import store from '../app/store'
 
-// It is working only if we import mockStore BEFORE router.
-jest.mock('../app/store', () => mockStore)
+jest.mock("../app/store", () => mockStore)
 
 function onNavigate(pathname) {
   document.body.innerHTML = ROUTES({ pathname })
